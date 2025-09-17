@@ -3,6 +3,9 @@ import pandas as pd
 import streamlit as st
 import plotly.express as px
 from ratios import FinancialInputs, compute_ratios
+import os
+import pandas as pd
+
 
 simplified_views = {
     "Current Ratio": {
@@ -287,8 +290,14 @@ st.title("📊  تحليل النسب المالية | Financial Ratios Platform
 st.sidebar.header("⚙️ الفلاتر")
 
 # 🟢 تحميل البيانات
-file_path = r"C:\Users\SOBHY\Desktop\Ratio_Analysis\financial_data.xlsx"
-df = pd.read_excel(file_path)
+
+file_path = "financial_data.xlsx"  # 👈 اسم ملفك اللي بالمجلد الرئيسي
+
+if os.path.exists(file_path):
+    df = pd.read_excel(file_path)
+else:
+    st.error("⚠️ ملف البيانات financial_data.xlsx غير موجود، يرجى رفعه أو إضافته للمجلد.")
+    st.stop()
 
 # عرض البيانات
 st.subheader("📋 البيانات المالية")
@@ -529,3 +538,4 @@ with tab2:
 
     else:
         st.warning("⚠️ لا توجد بيانات كافية للمقارنة")
+
