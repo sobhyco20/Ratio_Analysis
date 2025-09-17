@@ -191,6 +191,36 @@ st.markdown("""
         font-size: 15px;
         color: #f0f0f0; /* داكن + فاتح */
     }
+
+    /* 🎨 الوضع الفاتح */
+    @media (prefers-color-scheme: light) {
+        .stMarkdown, .stText, div, p, span {
+            color: #2C3E50 !important;   /* 🔵 نص غامق يظهر بوضوح */
+        }
+        .improvement-box {
+            background-color: #E8F6F3 !important;  /* خلفية فاتحة */
+            color: #145A32 !important;             /* نص أخضر غامق */
+        }
+        .explanation-box {
+            background-color: #F4F6F7 !important;  /* رمادي فاتح */
+            color: #1C2833 !important;
+        }
+    }
+
+    /* 🎨 الوضع الداكن */
+    @media (prefers-color-scheme: dark) {
+        .stMarkdown, .stText, div, p, span {
+            color: #f0f0f0 !important;   /* أبيض فاتح */
+        }
+        .improvement-box {
+            background-color: #1e3a5f !important;
+            color: #f0f0f0 !important;
+        }
+        .explanation-box {
+            background-color: #2a2a2a !important;
+            color: #ffffff !important;
+        }
+    }
     
     /* 🎨 تخصيص الهيدر تبع النسب */
     div.streamlit-expanderHeader p {
@@ -553,6 +583,7 @@ with tab2:
 
     else:
         st.warning("⚠️ لا توجد بيانات كافية للمقارنة")
+
 
 
 
