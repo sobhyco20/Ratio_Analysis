@@ -280,7 +280,27 @@ st.markdown("""
         text-align: left;
         font-family: 'Cairo', sans-serif;
     }
-          
+
+        /* تحسين النصوص في الوضع الداكن */
+    .stMarkdown, .stText, div, p, span {
+        color: #f0f0f0 !important;  /* لون فاتح */
+    }
+    /* تخصيص المربعات (البوكس) */
+    .improvement-box {
+        background-color: #1e3a5f;
+        padding: 10px;
+        border-radius: 8px;
+        margin-top: 10px;
+        color: #f0f0f0 !important;
+    }
+    /* تحسين التباين للشرح */
+    .explanation-box {
+        background-color: #2a2a2a;
+        padding: 10px;
+        border-radius: 8px;
+        margin-top: 10px;
+        color: #ffffff !important;
+    }      
 
     </style>
 """, unsafe_allow_html=True)
@@ -538,4 +558,5 @@ with tab2:
 
     else:
         st.warning("⚠️ لا توجد بيانات كافية للمقارنة")
+
 
