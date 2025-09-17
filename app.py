@@ -191,23 +191,23 @@ st.markdown("""
         font-size: 15px;
         color: #f0f0f0; /* داكن + فاتح */
     }
-
-    /* 🎨 تخصيص الهيدر تبع expander */
+    
+    /* 🎨 تخصيص الهيدر تبع النسب */
     div.streamlit-expanderHeader p {
         text-align: center !important;
         font-family: 'Cairo', sans-serif !important;
-        font-size: 26px !important;
-        font-weight: 900 !important;
-        color: #2C3E50 !important;
-        background-color: #E8F6F3 !important;
+        font-size: 24px !important;
+        font-weight: 800 !important;
+        color: #ffffff !important;              /* 🔵 النص الأساسي */
+        background-color: #1b263b !important;   /* ⚫ خلفية داكنة */
         border-radius: 8px !important;
-        padding: 12px !important;
+        padding: 10px !important;
         margin: 0 !important;
     }
 
-    /* 🎨 القيمة (Value) */
+    /* ✨ قيمة النسبة */
     .ratio-value {
-        color: #8E44AD !important;
+        color: #00e676 !important;   /* ✅ أخضر فاتح */
         font-weight: 900 !important;
     }
 
@@ -553,6 +553,7 @@ with tab2:
 
     else:
         st.warning("⚠️ لا توجد بيانات كافية للمقارنة")
+
 
 
 
