@@ -189,20 +189,55 @@ st.markdown("""
         font-size: 15px;
     }
 
-    /* 🎨 الوضع الفاتح */
+
+    /* ✨ الوضع الفاتح */
     @media (prefers-color-scheme: light) {
-        .arabic, .english { color: #2C3E50 !important; }
-        div.streamlit-expanderHeader p { 
-            color: #2C3E50 !important; 
-            background-color: #E8F6F3 !important; 
+        .stMarkdown, .stText, div, p, span {
+            color: #2C3E50 !important;   /* نص داكن */
         }
-        .ratio-value { color: #00796B !important; }
-        .equation-ar { background-color: #D6EAF8; color: #154360; }
-        .equation-en { background-color: #FCF3CF; color: #7D6608; }
-        .improvement-box { background-color: #E8F6F3; color: #145A32 !important; border: 2px solid #1abc9c; }
-        .explanation-box { background-color: #F4F6F7; color: #1C2833 !important; }
-        .analysis-box { background-color: #E9F7EF; color: #145A32 !important; }
-        .simplified-box { background-color: #EBF5FB; color: #1B4F72 !important; }
+
+        /* الهيدر */
+        div.streamlit-expanderHeader p {
+            color: #2C3E50 !important;         /* نص غامق */
+            background-color: #E8F6F3 !important; /* خلفية فاتحة */
+        }
+
+        /* المعادلة - عربي */
+        .equation-ar {
+            background-color: #D6EAF8 !important; /* أزرق فاتح */
+            color: #154360 !important;           /* أزرق داكن */
+        }
+
+        /* المعادلة - إنجليزي */
+        .equation-en {
+            background-color: #FCF3CF !important; /* أصفر فاتح */
+            color: #7D6608 !important;           /* بني غامق */
+        }
+
+        /* صندوق الشرح */
+        .explanation-box {
+            background-color: #F4F6F7 !important; /* رمادي فاتح */
+            color: #1C2833 !important;           /* أسود تقريبًا */
+        }
+
+        /* صندوق التحليل */
+        .analysis-box {
+            background-color: #D5F5E3 !important; /* أخضر فاتح */
+            color: #145A32 !important;           /* أخضر داكن */
+        }
+
+        /* صندوق التبسيط */
+        .simplified-box {
+            background-color: #EBF5FB !important; /* أزرق فاتح جدًا */
+            color: #1B4F72 !important;           /* أزرق غامق */
+        }
+
+        /* صندوق التحسين */
+        .improvement-box {
+            background-color: #EAFAF1 !important; /* أخضر فاتح جدًا */
+            border: 2px solid #27AE60 !important; 
+            color: #145A32 !important;           /* أخضر غامق */
+        }
     }
 
     /* 🎨 الوضع الداكن */
@@ -526,6 +561,7 @@ with tab2:
 
     else:
         st.warning("⚠️ لا توجد بيانات كافية للمقارنة")
+
 
 
 
