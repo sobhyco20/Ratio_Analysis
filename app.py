@@ -165,114 +165,103 @@ st.set_page_config(page_title="📊 منصة تحليل النسب المالي�
 # 🎨 تنسيقات CSS + Cairo Font
 st.markdown("""
     <style>
+    /* استدعاء الخطوط */
     @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@500&display=swap');
 
+    /* 🔤 الخط الافتراضي */
     html, body, [class*="css"] {
         font-family: 'Cairo', sans-serif !important;
     }
+
+    /* النصوص العربية */
     .arabic {
-        direction: rtl !important;     /* ✅ اتجاه من اليمين لليسار */
-        text-align: right !important;  /* ✅ محاذاة لليمين */
-        font-family: 'Cairo', sans-serif;
+        direction: rtl !important;
+        text-align: right !important;
+        font-family: 'Cairo', 'Tajawal', sans-serif;
         font-size: 16px;
-        color: #1B2631;
-    }        
+        color: #f0f0f0; /* داكن + فاتح */
+    }
+
+    /* النصوص الإنجليزية */
     .english {
         direction: ltr;
         text-align: left;
         font-family: 'Cairo', sans-serif;
         font-size: 15px;
-        color: #212F3C;
-    }
-    .equation-ar {
-        background-color: #D6EAF8;
-        padding: 8px;
-        border-radius: 8px;
-        font-family: 'Courier New', monospace;
-        color: #154360;
-        font-weight: 600;
-    }
-    .equation-en {
-        background-color: #FCF3CF;
-        padding: 8px;
-        border-radius: 8px;
-        font-family: 'Courier New', monospace;
-        color: #7D6608;
-        font-weight: 600;
+        color: #f0f0f0; /* داكن + فاتح */
     }
 
     /* 🎨 تخصيص الهيدر تبع expander */
     div.streamlit-expanderHeader p {
         text-align: center !important;
         font-family: 'Cairo', sans-serif !important;
-        font-size: 26px !important;   /* أكبر */
-        font-weight: 900 !important;  /* عريض */
-        color: #2C3E50 !important;    /* لون غامق */
-        background-color: #E8F6F3 !important; /* خلفية */
+        font-size: 26px !important;
+        font-weight: 900 !important;
+        color: #2C3E50 !important;
+        background-color: #E8F6F3 !important;
         border-radius: 8px !important;
         padding: 12px !important;
         margin: 0 !important;
     }
 
-    /* 🎨 القيمة (value) */
-    div.streamlit-expanderHeader p .ratio-value {
+    /* 🎨 القيمة (Value) */
+    .ratio-value {
         color: #8E44AD !important;
         font-weight: 900 !important;
     }
 
     .ratio-title {
-        text-align:center;
-        font-family:Cairo, sans-serif;
-        font-size:24px;
-        font-weight:700;
-        color:#2C3E50;
-        margin-bottom:15px;
+        text-align: center;
+        font-family: 'Cairo', sans-serif;
+        font-size: 24px;
+        font-weight: 700;
+        color: #2C3E50;
+        margin-bottom: 15px;
     }
-    .ratio-value {
-        color:#8E44AD;
-        font-weight:700;
-    }
-            
-        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@500&display=swap');
-    @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@500&display=swap');
 
+    /* 📐 المعادلة - عربي */
     .equation-ar {
-        background-color: #eaf2f8;
+        background-color: #eaf2f8; /* أزرق فاتح */
         padding: 8px;
         border-radius: 6px;
         font-family: 'Cairo', 'Tajawal', sans-serif;
         font-size: 16px;
         color: #1a5276;
+        font-weight: 600;
     }
+
+    /* 📐 المعادلة - إنجليزي */
     .equation-en {
-        background-color: #fef9e7;
+        background-color: #fef9e7; /* أصفر فاتح */
         padding: 8px;
         border-radius: 6px;
         font-family: 'Cairo', sans-serif;
         font-size: 16px;
         color: #7d6608;
-    }        
-            
+        font-weight: 600;
+    }
+
+    /* 🚀 صندوق التحسين */
     .improvement-box {
-        background-color: #e8f8f5;
+        background-color: #1e3a5f; /* أزرق داكن للوضع الداكن */
         border: 2px solid #1abc9c;
         border-radius: 12px;
         padding: 15px;
         margin-top: 15px;
-        text-align: center;   /* ✅ النصوص في المنتصف */
-        font-family: 'Cairo', 'Tajawal', sans-serif; /* ✅ خط واضح */
+        text-align: center;
+        font-family: 'Cairo', 'Tajawal', sans-serif;
         font-size: 16px;
-        color: #145a32;
+        color: #f0f0f0 !important;
     }
     .improvement-box p {
         margin: 5px 0;
     }
 
-
     .improvement-ar {
-    direction: rtl;
-    text-align: right;
-    font-family: 'Cairo', sans-serif;
+        direction: rtl;
+        text-align: right;
+        font-family: 'Cairo', sans-serif;
     }
 
     .improvement-en {
@@ -281,26 +270,32 @@ st.markdown("""
         font-family: 'Cairo', sans-serif;
     }
 
-        /* تحسين النصوص في الوضع الداكن */
-    .stMarkdown, .stText, div, p, span {
-        color: #f0f0f0 !important;  /* لون فاتح */
-    }
-    /* تخصيص المربعات (البوكس) */
-    .improvement-box {
-        background-color: #1e3a5f;
-        padding: 10px;
-        border-radius: 8px;
-        margin-top: 10px;
-        color: #f0f0f0 !important;
-    }
-    /* تحسين التباين للشرح */
+    /* ✨ صندوق الشرح */
     .explanation-box {
-        background-color: #2a2a2a;
+        background-color: #2a2a2a; /* خلفية رمادية داكنة */
         padding: 10px;
         border-radius: 8px;
         margin-top: 10px;
         color: #ffffff !important;
-    }      
+    }
+
+    /* ✨ تحليل (Analysis) */
+    .analysis-box {
+        background-color: #145a32; /* أخضر داكن */
+        padding: 10px;
+        border-radius: 8px;
+        margin: 5px 0;
+        color: #d4ffd4 !important;
+    }
+
+    /* 👥 التبسيط */
+    .simplified-box {
+        background-color: #16324f; /* أزرق داكن */
+        padding: 10px;
+        border-radius: 6px;
+        margin: 5px 0;
+        color: #cce6ff !important;
+    }
 
     </style>
 """, unsafe_allow_html=True)
@@ -558,5 +553,6 @@ with tab2:
 
     else:
         st.warning("⚠️ لا توجد بيانات كافية للمقارنة")
+
 
 
