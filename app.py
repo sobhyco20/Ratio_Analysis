@@ -207,11 +207,22 @@ st.markdown("""
 
     /* التحسين */
     .improvement-box { 
-        background: #E0F2F1 !important; 
-        border: 2px solid #009688 !important; 
-        color: #004D40 !important;
-        font-weight:600;
+        display: block;
+        width: 100% !important;        /* يأخذ عرض الصفحة */
+        box-sizing: border-box;
+        padding: 20px;                 /* مساحة داخلية مريحة */
+        margin: 15px 0;                /* مسافة فوق وتحت */
+        border-radius: 10px;           /* زوايا ناعمة */
+        
+        /* 🎨 ألوان جديدة */
+        background: linear-gradient(90deg, #FFECB3, #FFE082) !important;  /* أصفر جذاب */
+        border: 2px solid #F57C00 !important;
+        color: #4E342E !important;
+        font-weight: 700;
+        font-size: 16px;
+        text-align: center;            /* النص في المنتصف */
     }
+
 }
 
 /* 🌙 الوضع الداكن */
@@ -537,6 +548,7 @@ with tab2:
 
     else:
         st.warning("⚠️ لا توجد بيانات كافية للمقارنة")
+
 
 
 
