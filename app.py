@@ -275,15 +275,22 @@ st.markdown("""
         0 0 30px #ffc014;
     }
 
-        [data-testid="stSidebar"]::after {
+    [data-testid="stSidebar"] {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    [data-testid="stSidebar"]::after {
         content: "";
         display: block;
-        margin-top: 20px;
-        height: 120px;  /* ارتفاع للصورة */
-        background-image: url('footer_logo.png');
+        height: 140px;  /* ارتفاع للصورة */
+        background-image: url('footer_logo.png'); /* 👈 حط اسم صورة اللوجو هنا */
         background-repeat: no-repeat;
         background-position: center;
         background-size: contain;
+        margin-top: 20px;
+        margin-bottom: 10px;
     }
     </style>
 """, unsafe_allow_html=True)
@@ -577,6 +584,7 @@ with tab2:
 
     else:
         st.warning("⚠️ لا توجد بيانات كافية للمقارنة")
+
 
 
 
