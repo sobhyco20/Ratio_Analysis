@@ -191,82 +191,55 @@ st.markdown("""
 /* ✨ الوضع الفاتح */
 @media (prefers-color-scheme: light) {
     body, html { background-color: #ffffff !important; }
+    .arabic, .english { color: #212529 !important; }
 
-    /* النصوص العربية والإنجليزية */
-    .arabic { color: #212529 !important; font-weight: 500; }
-    .english { color: #212529 !important; font-weight: 500; }
+    /* الشرح */
+    .explanation-box { background: #F3E5F5 !important; color: #4A148C !important; }
 
-    /* نصوص المعادلات */
-    .equation-ar { 
-        background: #D6EAF8 !important; 
-        color: #0d3c61 !important; 
-        font-weight: 700; 
-    }
-    .equation-en { 
-        background: #FCF3CF !important; 
-        color: #5c4700 !important; 
-        font-weight: 700; 
-    }
+    /* المعادلات */
+    .equation-ar, .equation-en { background: #E3F2FD !important; color: #0D47A1 !important; font-weight:600; }
 
-    /* النصوص داخل صندوق النسبة */
-    .explanation-box, .analysis-box, .simplified-box {
-        background: #F8F9FA !important; 
-        color: #1C2833 !important; 
-        font-weight: 500;
-    }
+    /* التحليل */
+    .analysis-box { background: #E8F5E9 !important; color: #1B5E20 !important; }
 
-    /* تحسينات */
+    /* التبسيط */
+    .simplified-box { background: #E0F7FA !important; color: #006064 !important; }
+
+    /* التحسين */
     .improvement-box { 
-        background: #EAFAF1 !important; 
-        border: 2px solid #27AE60 !important; 
-        color: #145A32 !important; 
-        font-weight: 600;
+        background: #E0F2F1 !important; 
+        border: 2px solid #009688 !important; 
+        color: #004D40 !important;
+        font-weight:600;
     }
 }
 
+/* 🌙 الوضع الداكن */
+@media (prefers-color-scheme: dark) {
+    body, html { background-color: #0e1621 !important; }
+    .arabic, .english { color: #f0f0f0 !important; }
 
+    /* الشرح */
+    .explanation-box { background: #4A148C !important; color: #E1BEE7 !important; }
 
-    /* 🌙 الوضع الداكن */
-    @media (prefers-color-scheme: dark) {
-        body, html { background-color: #0e1621 !important; }
-        .arabic, .english { color: #f0f0f0 !important; }
-        div.streamlit-expanderHeader p {
-            color: #f0f0f0 !important;
-            background: linear-gradient(90deg,#1b263b,#2e4053) !important;
-        }
-        .ratio-value { color: #00e676 !important; }
-        .equation-ar { background: #2E4053 !important; color: #AED6F1 !important; }
-        .equation-en { background: #7D6608 !important; color: #F9E79F !important; }
-        .explanation-box { background: #2a2a2a !important; color: #ffffff !important; }
-        .analysis-box { background: #145a32 !important; color: #d4ffd4 !important; }
-        .simplified-box { background: #16324f !important; color: #cce6ff !important; }
-        .improvement-box { background: #1e3a5f !important; border: 2px solid #1abc9c !important; color: #f0f0f0 !important; }
+    /* المعادلات */
+    .equation-ar, .equation-en { background: #0D47A1 !important; color: #BBDEFB !important; font-weight:600; }
+
+    /* التحليل */
+    .analysis-box { background: #1B5E20 !important; color: #C8E6C9 !important; }
+
+    /* التبسيط */
+    .simplified-box { background: #006064 !important; color: #B2EBF2 !important; }
+
+    /* التحسين */
+    .improvement-box { 
+        background: #004D40 !important; 
+        border: 2px solid #1abc9c !important; 
+        color: #B2DFDB !important;
+        font-weight:600;
     }
+}
 
-    /* الهيدر */
-    div.streamlit-expanderHeader p {
-        text-align: center !important;
-        font-size: 22px !important;
-        font-weight: 800 !important;
-        border-radius: 8px !important;
-        padding: 10px !important;
-        margin: 0 !important;
-    }
-
-    /* قيمة النسبة */
-    .ratio-value {
-        font-weight: 900 !important;
-    }
-
-    /* صندوق التحسين */
-    .improvement-box {
-        border-radius: 12px;
-        padding: 15px;
-        margin-top: 15px;
-        text-align: center;
-        font-size: 16px;
-        box-shadow: 0px 4px 12px rgba(0,0,0,0.15);
-    }
     .improvement-box p { margin: 5px 0; }
     .improvement-ar { direction: rtl; text-align: right; }
     .improvement-en { direction: ltr; text-align: left; }
@@ -564,6 +537,7 @@ with tab2:
 
     else:
         st.warning("⚠️ لا توجد بيانات كافية للمقارنة")
+
 
 
 
