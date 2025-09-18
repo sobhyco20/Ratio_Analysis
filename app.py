@@ -314,6 +314,9 @@ st.title("📊  تحليل النسب المالية | Financial Ratios Platform
 
 # 🟢 اللوجو أعلى الفلاتر (داخل الشريط الجانبي)
 st.sidebar.image("logo.png", use_container_width=True)
+st.sidebar.image("footer_logo.png", use_container_width=True)
+
+
 st.sidebar.header("⚙️ الفلاتر")
 
 # 🟢 تحميل البيانات
@@ -589,6 +592,7 @@ with tab2:
 
     else:
         st.warning("⚠️ لا توجد بيانات كافية للمقارنة")
+
 
 
 
