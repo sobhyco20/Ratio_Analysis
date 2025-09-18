@@ -276,10 +276,6 @@ st.set_page_config(page_title="📊 منصة تحليل النسب المالي�
 
 st.title("📊  تحليل النسب المالية | Financial Ratios Platform")
 
-st.image("logo.png", use_container_width=True)
-
-
-
 
 st.sidebar.header("⚙️ الفلاتر")
 
@@ -297,6 +293,8 @@ else:
 # عرض البيانات
 st.subheader("📋 البيانات المالية")
 st.dataframe(df)
+
+st.image("logo.png", use_container_width=True)
 
 # 🟢 فلتر السنوات
 years = df["year"].unique().tolist()
@@ -556,6 +554,7 @@ with tab2:
 
     else:
         st.warning("⚠️ لا توجد بيانات كافية للمقارنة")
+
 
 
 
