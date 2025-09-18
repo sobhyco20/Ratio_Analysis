@@ -380,30 +380,46 @@ with tab1:
 
                         col1, col2 = st.columns(2)
 
-                        # 🟦 العمود الأيمن (AR)
-                        with col2:
-                            st.markdown(f"<div class='arabic'><b>📌 الشرح:</b> {r['explain']}</div>", unsafe_allow_html=True)
-                            st.markdown(
-                                f"<div style='direction: rtl; text-align: right;' class='equation-ar'>📐 {r['equation']}</div>",
-                                unsafe_allow_html=True
-                            )
-                            st.markdown(f"<div class='arabic'><b>🧾 التحليل:</b> {r['analysis']}</div>", unsafe_allow_html=True)
-                            if r["name_en"] in simplified_views:
-                            st.markdown(
-                                f"<div class='simplified-box arabic'>{simplified_views[r['name_en']]['ar']}</div>",
-                                unsafe_allow_html=True
-                            )
+            # 🟦 العمود الأيمن (AR)
+            with col2:
+                st.markdown(
+                    f"<div class='arabic'><b>📌 الشرح:</b> {r['explain']}</div>",
+                    unsafe_allow_html=True
+                )
+                st.markdown(
+                    f"<div style='direction: rtl; text-align: right;' class='equation-ar'>📐 {r['equation']}</div>",
+                    unsafe_allow_html=True
+                )
+                st.markdown(
+                    f"<div class='arabic'><b>🧾 التحليل:</b> {r['analysis']}</div>",
+                    unsafe_allow_html=True
+                )
+                if r["name_en"] in simplified_views:
+                    st.markdown(
+                        f"<div class='simplified-box arabic'>{simplified_views[r['name_en']]['ar']}</div>",
+                        unsafe_allow_html=True
+                    )
+            
+            # 🟨 العمود الأيسر (EN)
+            with col1:
+                st.markdown(
+                    f"<div class='english'><b>📌 Explanation:</b> {r['explain_en']}</div>",
+                    unsafe_allow_html=True
+                )
+                st.markdown(
+                    f"<div class='equation-en'>📐 {r['equation_en']}</div>",
+                    unsafe_allow_html=True
+                )
+                st.markdown(
+                    f"<div class='english'><b>🧾 Analysis:</b> {r['analysis_en']}</div>",
+                    unsafe_allow_html=True
+                )
+                if r["name_en"] in simplified_views:
+                    st.markdown(
+                        f"<div class='simplified-box english'>{simplified_views[r['name_en']]['en']}</div>",
+                        unsafe_allow_html=True
+                    )
 
-                        # 🟨 العمود الأيسر (EN)
-                        with col1:
-                            st.markdown(f"<div class='english'><b>📌 Explanation:</b> {r['explain_en']}</div>", unsafe_allow_html=True)
-                            st.markdown(f"<div class='equation-en'>📐 {r['equation_en']}</div>", unsafe_allow_html=True)
-                            st.markdown(f"<div class='english'><b>🧾 Analysis:</b> {r['analysis_en']}</div>", unsafe_allow_html=True)
-                           if r["name_en"] in simplified_views:
-                           st.markdown(
-                                f"<div class='simplified-box english'>{simplified_views[r['name_en']]['en']}</div>",
-                                unsafe_allow_html=True
-                            )
 
                         # ✅ صندوق التحسينات
                         if r["name_en"] in improvements:
@@ -548,6 +564,7 @@ with tab2:
 
     else:
         st.warning("⚠️ لا توجد بيانات كافية للمقارنة")
+
 
 
 
