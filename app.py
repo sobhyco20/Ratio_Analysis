@@ -264,15 +264,15 @@ st.markdown("""
     }
 
     .glow-text {
-    font-size: 26px;
+    font-size: 32px;
     font-weight: bold;
     color: #000000;  /* بنفسجي */
     text-align: center;
     text-shadow: 
         0 0 5px #004461,
         0 0 10px #9B59B6,
-        0 0 20px #BB8FCE,
-        0 0 30px #D2B4DE;
+        0 0 20px #6b4c12,
+        0 0 30px #ffc014;
     }
     </style>
 """, unsafe_allow_html=True)
@@ -561,6 +561,7 @@ with tab2:
 
     else:
         st.warning("⚠️ لا توجد بيانات كافية للمقارنة")
+
 
 
 
