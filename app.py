@@ -367,15 +367,12 @@ with tab1:
                         # ✅ العنوان المنسق يظهر دائمًا (مطوي أو مفتوح)
                         st.markdown(
                             f"""
-                            <div style="text-align:center; font-family:'Cairo', sans-serif;
-                                        font-size:26px; font-weight:800; color:#2C3E50;">
-                                {r['name']} | {r['name_en']} —
-                                <span style="color:#8E44AD;">{value_display}</span>
+                            <div class="glow-text">
+                                {r['name']} | {r['name_en']} — {value_display}
                             </div>
                             """,
                             unsafe_allow_html=True
                         )
-
 
                         col1, col2 = st.columns(2)
 
@@ -564,6 +561,7 @@ with tab2:
 
     else:
         st.warning("⚠️ لا توجد بيانات كافية للمقارنة")
+
 
 
 
