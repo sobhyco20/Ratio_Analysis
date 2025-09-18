@@ -274,6 +274,17 @@ st.markdown("""
         0 0 20px #6b4c12,
         0 0 30px #ffc014;
     }
+
+        [data-testid="stSidebar"]::after {
+        content: "";
+        display: block;
+        margin-top: 20px;
+        height: 120px;  /* ارتفاع للصورة */
+        background-image: url('footer_logo.png');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+    }
     </style>
 """, unsafe_allow_html=True)
 
@@ -566,6 +577,7 @@ with tab2:
 
     else:
         st.warning("⚠️ لا توجد بيانات كافية للمقارنة")
+
 
 
 
