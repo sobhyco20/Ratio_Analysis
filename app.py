@@ -266,7 +266,7 @@ st.markdown("""
     .glow-text {
     font-size: 26px;
     font-weight: bold;
-    color: #8ca0a8;  /* بنفسجي */
+    color: #000000;  /* بنفسجي */
     text-align: center;
     text-shadow: 
         0 0 5px #004461,
@@ -561,6 +561,7 @@ with tab2:
 
     else:
         st.warning("⚠️ لا توجد بيانات كافية للمقارنة")
+
 
 
 
