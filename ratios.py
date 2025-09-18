@@ -100,11 +100,11 @@ def interpret_margin(x, ar, en):
         return ("لا يمكن تقييم النسبة.", "Not enough data.")
     
     pct = x * 100
-    
-    if pct < 5:
-        return (f"{ar} ضعيف (<5%).", f"{en} Weak (<5%).")
-    elif 5 <= pct < 30:
-        return (f"{ar} متوسط (5–30%).", f"{en} Moderate (5–30%).")
+
+    if pct < 25:
+        return (f"{ar} ضعيف (<25%).", f"{en} Weak (<25%).")
+    elif 25 <= pct < 30:
+        return (f"{ar} متوسط (25–30%).", f"{en} Moderate (25–30%).")
     elif 30 <= pct <= 35:
         return (f"{ar} جيد (30–35%).", f"{en} Good (30–35%).")
     else:
@@ -342,4 +342,5 @@ def compute_ratios(fi: FinancialInputs) -> List[Dict[str, Any]]:
     })
 
     return results
+
 
