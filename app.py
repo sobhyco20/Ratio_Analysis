@@ -275,21 +275,6 @@ st.markdown("""
         0 0 30px #ffc014;
     }
 
-/* نحول محتوى الشريط الجانبي لـ flex عمودي بطول كامل */
-[data-testid="stSidebar"] > div, 
-[data-testid="stSidebar"] [data-testid="stSidebarContent"]{
-  display: flex !important;
-  flex-direction: column !important;
-  height: 100% !important;
-}
-
-/* عنصر فاصل يتمدد ويدفع ما بعده لأسفل */
-.sidebar-spacer { flex: 1 1 auto; }
-
-/* تنسيق بسيط للذيل */
-.sidebar-footer{ text-align:center; padding:8px 0; }
-.sidebar-footer img{ max-width: 95%; border-radius: 10px; }
-.sidebar-footer .cap{ font-size: 12px; opacity: .7; margin-top: 4px; }
 
     </style>
 """, unsafe_allow_html=True)
@@ -300,6 +285,35 @@ st.markdown("""
 
 
 st.set_page_config(page_title="📊 منصة تحليل النسب المالية", layout="wide")
+
+st.markdown("""
+<style>
+/* نخلي الشريط الجانبي نفسه مرجع تموضع */
+[data-testid="stSidebar"]{ position: relative; }
+
+/* نزود مسافة سفلية لمحتوى الشريط عشان ما يتغطى الفوتر */
+[data-testid="stSidebar"] [data-testid="stSidebarContent"]{
+  padding-bottom: 170px !important;
+}
+
+/* الفوتر مُثبَّت بأسفل الشريط */
+[data-testid="stSidebar"] .sidebar-footer-fixed{
+  position: absolute;
+  left: 0; right: 0; bottom: 12px;   /* مسافة بسيطة من الأسفل */
+  text-align: center;
+  padding: 6px 10px;
+}
+
+[data-testid="stSidebar"] .sidebar-footer-fixed img{
+  max-width: 92%;
+  border-radius: 10px;
+}
+
+[data-testid="stSidebar"] .sidebar-footer-fixed .cap{
+  font-size: 12px; opacity: .75; margin-top: 4px;
+}
+</style>
+""", unsafe_allow_html=True)
 
 
 
@@ -328,11 +342,40 @@ with st.expander("📑 البيانات المالية", expanded=False):
 years = df["year"].unique().tolist()
 selected_years = st.sidebar.multiselect("اختر السنوات للتحليل", years, default=years)
 
-st.sidebar.markdown('<div class="sidebar-spacer"></div>', unsafe_allow_html=True)
-with st.sidebar:
-    st.markdown('<div class="sidebar-footer">', unsafe_allow_html=True)
-    st.image("footer_logo.png", use_container_width=True)
-    st.markdown('<div class="cap">Sobhy Analysis</div></div>', unsafe_allow_html=True)
+
+
+
+import base64, os
+
+def img_b64(path: str) -> str:
+    with open(path, "rb") as f:
+        return base64.b64encode(f.read()).decode("utf-8")
+
+# غيّر الاسم لو لوجوك اسمه مختلف
+logo_path = "footer_logo.png"
+if os.path.exists(logo_path):
+    b64 = img_b64(logo_path)
+    st.sidebar.markdown(
+        f"""
+        <div class="sidebar-footer-fixed">
+            <img src="data:image/png;base64,{b64}" alt="Sobhy Analysis"/>
+            <div class="cap">Sobhy Analysis</div>
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
+else:
+    # حتى لو الملف مفقود، يظهر فقط نص الفوتر بأسفل الشريط
+    st.sidebar.markdown(
+        """
+        <div class="sidebar-footer-fixed">
+            <div class="cap">Sobhy Analysis</div>
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
+
+
 
 # 🟢 أيقونات لكل مجموعة نسب
 icons = {
@@ -585,6 +628,7 @@ with tab2:
 
     else:
         st.warning("⚠️ لا توجد بيانات كافية للمقارنة")
+
 
 
 
