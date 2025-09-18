@@ -188,22 +188,28 @@ st.markdown("""
         font-size: 15px;
     }
 
-    /* ✨ الوضع الفاتح */
-    @media (prefers-color-scheme: light) {
-        body, html { background-color: #fdfdfd !important; }
-        .arabic, .english { color: #2C3E50 !important; }
-        div.streamlit-expanderHeader p {
-            color: #2C3E50 !important;
-            background: linear-gradient(90deg,#E8F6F3,#D6EAF8) !important;
-        }
-        .ratio-value { color: #8E44AD !important; }
-        .equation-ar { background: #D6EAF8 !important; color: #154360 !important; }
-        .equation-en { background: #FCF3CF !important; color: #7D6608 !important; }
-        .explanation-box { background: #F4F6F7 !important; color: #1C2833 !important; }
-        .analysis-box { background: #D5F5E3 !important; color: #145A32 !important; }
-        .simplified-box { background: #EBF5FB !important; color: #1B4F72 !important; }
-        .improvement-box { background: #EAFAF1 !important; border: 2px solid #27AE60 !important; color: #145A32 !important; }
+/* ✨ الوضع الفاتح */
+@media (prefers-color-scheme: light) {
+    body, html { background-color: #ffffff !important; }
+    .arabic, .english { color: #212529 !important; }  /* نصوص أغمق */
+    div.streamlit-expanderHeader p {
+        color: #212529 !important;
+        background: linear-gradient(90deg,#E8F6F3,#D6EAF8) !important;
     }
+    .ratio-value { color: #8E44AD !important; }
+    .equation-ar { background: #D6EAF8 !important; color: #0d3c61 !important; font-weight:600; }
+    .equation-en { background: #FCF3CF !important; color: #5c4700 !important; font-weight:600; }
+    .explanation-box { background: #F8F9FA !important; color: #1C2833 !important; }
+    .analysis-box { background: #E9F7EF !important; color: #145A32 !important; }
+    .simplified-box { background: #EBF5FB !important; color: #154360 !important; }
+    .improvement-box { 
+        background: #EAFAF1 !important; 
+        border: 2px solid #27AE60 !important; 
+        color: #145A32 !important;
+        font-weight:600;
+    }
+}
+
 
     /* 🌙 الوضع الداكن */
     @media (prefers-color-scheme: dark) {
@@ -521,6 +527,7 @@ with tab2:
 
     else:
         st.warning("⚠️ لا توجد بيانات كافية للمقارنة")
+
 
 
 
