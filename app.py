@@ -338,38 +338,6 @@ selected_years = st.sidebar.multiselect("اختر السنوات للتحليل"
 
 
 
-import base64, os
-
-def img_b64(path: str) -> str:
-    with open(path, "rb") as f:
-        return base64.b64encode(f.read()).decode("utf-8")
-
-# غيّر الاسم لو لوجوك اسمه مختلف
-logo_path = "footer_logo.png"
-if os.path.exists(logo_path):
-    b64 = img_b64(logo_path)
-    st.sidebar.markdown(
-        f"""
-        <div class="sidebar-footer-fixed">
-            <img src="data:image/png;base64,{b64}" alt="Sobhy Analysis"/>
-            <div class="cap">Sobhy Analysis</div>
-        </div>
-        """,
-        unsafe_allow_html=True
-    )
-else:
-    # حتى لو الملف مفقود، يظهر فقط نص الفوتر بأسفل الشريط
-    st.sidebar.markdown(
-        """
-        <div class="sidebar-footer-fixed">
-            <div class="cap">Sobhy Analysis</div>
-        </div>
-        """,
-        unsafe_allow_html=True
-    )
-
-
-
 # 🟢 أيقونات لكل مجموعة نسب
 icons = {
     "نسب الأصول": "🏦",
@@ -621,6 +589,7 @@ with tab2:
 
     else:
         st.warning("⚠️ لا توجد بيانات كافية للمقارنة")
+
 
 
 
