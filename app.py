@@ -275,23 +275,22 @@ st.markdown("""
         0 0 30px #ffc014;
     }
 
-    [data-testid="stSidebar"] {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-    }
+/* نحول محتوى الشريط الجانبي لـ flex عمودي بطول كامل */
+[data-testid="stSidebar"] > div, 
+[data-testid="stSidebar"] [data-testid="stSidebarContent"]{
+  display: flex !important;
+  flex-direction: column !important;
+  height: 100% !important;
+}
 
-    [data-testid="stSidebar"]::after {
-        content: "";
-        display: block;
-        height: 140px;  /* ارتفاع للصورة */
-        background-image: url('footer_logo.png'); /* 👈 حط اسم صورة اللوجو هنا */
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: contain;
-        margin-top: 20px;
-        margin-bottom: 10px;
-    }
+/* عنصر فاصل يتمدد ويدفع ما بعده لأسفل */
+.sidebar-spacer { flex: 1 1 auto; }
+
+/* تنسيق بسيط للذيل */
+.sidebar-footer{ text-align:center; padding:8px 0; }
+.sidebar-footer img{ max-width: 95%; border-radius: 10px; }
+.sidebar-footer .cap{ font-size: 12px; opacity: .7; margin-top: 4px; }
+
     </style>
 """, unsafe_allow_html=True)
 
@@ -329,11 +328,11 @@ with st.expander("📑 البيانات المالية", expanded=False):
 years = df["year"].unique().tolist()
 selected_years = st.sidebar.multiselect("اختر السنوات للتحليل", years, default=years)
 
-st.sidebar.markdown(" " * 50)
-
+st.sidebar.markdown('<div class="sidebar-spacer"></div>', unsafe_allow_html=True)
 with st.sidebar:
-    st.markdown("<br><br><br>", unsafe_allow_html=True)
-    st.image("footer_logo.png", use_container_width=True, caption="Sobhy Analysis")
+    st.markdown('<div class="sidebar-footer">', unsafe_allow_html=True)
+    st.image("footer_logo.png", use_container_width=True)
+    st.markdown('<div class="cap">Sobhy Analysis</div></div>', unsafe_allow_html=True)
 
 # 🟢 أيقونات لكل مجموعة نسب
 icons = {
@@ -586,6 +585,7 @@ with tab2:
 
     else:
         st.warning("⚠️ لا توجد بيانات كافية للمقارنة")
+
 
 
 
