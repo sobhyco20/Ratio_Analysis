@@ -262,6 +262,18 @@ st.markdown("""
         text-align: left !important;
         font-family: 'Cairo', sans-serif !important;
     }
+
+    .glow-text {
+    font-size: 26px;
+    font-weight: bold;
+    color: #8E44AD;  /* بنفسجي */
+    text-align: center;
+    text-shadow: 
+        0 0 5px #8E44AD,
+        0 0 10px #9B59B6,
+        0 0 20px #BB8FCE,
+        0 0 30px #D2B4DE;
+    }
     </style>
 """, unsafe_allow_html=True)
 
@@ -552,6 +564,7 @@ with tab2:
 
     else:
         st.warning("⚠️ لا توجد بيانات كافية للمقارنة")
+
 
 
 
