@@ -246,11 +246,22 @@ st.markdown("""
         font-weight: 700;
         font-size: 16px;
         text-align: center;
+        font-family: 'Cairo', 'Tajawal', sans-serif !important;
     }
 
     .improvement-box p { margin: 5px 0; }
-    .improvement-ar { direction: rtl; text-align: right; }
-    .improvement-en { direction: ltr; text-align: left; }
+ 
+    .improvement-ar {
+        direction: rtl !important;
+        text-align: right !important;
+        font-family: 'Cairo', 'Tajawal', sans-serif !important;
+    }
+    
+    .improvement-en {
+        direction: ltr !important;
+        text-align: left !important;
+        font-family: 'Cairo', sans-serif !important;
+    }
     </style>
 """, unsafe_allow_html=True)
 
@@ -539,6 +550,7 @@ with tab2:
 
     else:
         st.warning("⚠️ لا توجد بيانات كافية للمقارنة")
+
 
 
 
