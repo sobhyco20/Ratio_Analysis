@@ -160,7 +160,6 @@ improvements = {
     }
 }
 
-
 # 🎨 تنسيقات CSS شاملة + Cairo Font
 st.markdown("""
     <style>
@@ -170,6 +169,7 @@ st.markdown("""
 
     html, body, [class*="css"] {
         font-family: 'Cairo', sans-serif !important;
+        background-color: #ffffff !important;  /* خلفية فاتحة دائمًا */
     }
 
     /* نصوص عربية */
@@ -178,6 +178,7 @@ st.markdown("""
         text-align: right !important;
         font-family: 'Cairo', 'Tajawal', sans-serif;
         font-size: 16px;
+        color: #212529 !important;  /* أسود */
     }
 
     /* نصوص إنجليزية */
@@ -186,84 +187,71 @@ st.markdown("""
         text-align: left;
         font-family: 'Cairo', sans-serif;
         font-size: 15px;
+        color: #212529 !important;  /* أسود */
     }
 
-/* ✨ الوضع الفاتح */
-@media (prefers-color-scheme: light) {
-    body, html { background-color: #ffffff !important; }
-    .arabic, .english { color: #212529 !important; }
-
-    /* الشرح */
-    .explanation-box { background: #F3E5F5 !important; color: #4A148C !important; }
-
-    /* المعادلات */
-    .equation-ar, .equation-en { background: #E3F2FD !important; color: #0D47A1 !important; font-weight:600; }
-
-    /* التحليل */
-    .analysis-box { background: #E8F5E9 !important; color: #1B5E20 !important; }
-
-    /* التبسيط */
-    .simplified-box { background: #E0F7FA !important; color: #006064 !important; }
-
-    /* التحسين */
-    .improvement-box { 
-        display: block;
-        width: 100% !important;        /* يأخذ عرض الصفحة */
-        box-sizing: border-box;
-        padding: 20px;                 /* مساحة داخلية مريحة */
-        margin: 15px 0;                /* مسافة فوق وتحت */
-        border-radius: 10px;           /* زوايا ناعمة */
-        
-        /* 🎨 ألوان جديدة */
-        background: linear-gradient(90deg, #FFECB3, #FFE082) !important;  /* أصفر جذاب */
-        border: 2px solid #F57C00 !important;
-        color: #4E342E !important;
-        font-weight: 700;
-        font-size: 16px;
-        text-align: center;            /* النص في المنتصف */
-    }
-
-}
-
-/* 🌙 الوضع الداكن */
-@media (prefers-color-scheme: dark) {
-    body, html { background-color: #0e1621 !important; }
-    .arabic, .english { color: #f0f0f0 !important; }
-
-    /* الشرح */
-    .explanation-box { background: #4A148C !important; color: #E1BEE7 !important; }
-
-    /* المعادلات */
-    .equation-ar, .equation-en { background: #0D47A1 !important; color: #BBDEFB !important; font-weight:600; }
-
-    /* التحليل */
-    .analysis-box { background: #1B5E20 !important; color: #C8E6C9 !important; }
-
-    /* التبسيط */
-    .simplified-box { background: #006064 !important; color: #B2EBF2 !important; }
-
-    /* التحسين */
-    .improvement-box { 
-        background: #004D40 !important; 
-        border: 2px solid #1abc9c !important; 
-        color: #B2DFDB !important;
-        font-weight:600;
-    }
-}
-
-    .improvement-box p { margin: 5px 0; }
-    .improvement-ar { direction: rtl; text-align: right; }
-    .improvement-en { direction: ltr; text-align: left; }
-
-    /* صندوق الشرح والتحليل */
-    .explanation-box, .analysis-box, .simplified-box {
+    /* 📌 صندوق الشرح */
+    .explanation-box {
+        background: #FFCDD2 !important;   /* أحمر فاتح */
+        color: #B71C1C !important;        /* أحمر غامق */
         padding: 12px;
         border-radius: 8px;
         margin: 6px 0;
         box-shadow: inset 0px 1px 3px rgba(0,0,0,0.1);
     }
+
+    /* 📐 المعادلات */
+    .equation-ar, .equation-en {
+        background: #BBDEFB !important;   /* أزرق فاتح */
+        color: #0D47A1 !important;        /* أزرق داكن */
+        padding: 12px;
+        border-radius: 8px;
+        font-weight: 600;
+        margin: 6px 0;
+    }
+
+    /* 🧾 التحليل */
+    .analysis-box {
+        background: #C8E6C9 !important;   /* أخضر فاتح */
+        color: #1B5E20 !important;        /* أخضر غامق */
+        padding: 12px;
+        border-radius: 8px;
+        margin: 6px 0;
+        font-weight: 600;
+    }
+
+    /* 👥 التبسيط */
+    .simplified-box {
+        background: #FFE0B2 !important;   /* برتقالي فاتح */
+        color: #E65100 !important;        /* برتقالي غامق */
+        padding: 12px;
+        border-radius: 8px;
+        margin: 6px 0;
+    }
+
+    /* 🚀 التحسين */
+    .improvement-box {
+        display: block;
+        width: 100% !important;
+        box-sizing: border-box;
+        padding: 20px;
+        margin: 15px 0;
+        border-radius: 10px;
+        
+        background: linear-gradient(90deg, #FFECB3, #FFE082) !important;  /* أصفر برتقالي جذاب */
+        border: 2px solid #F57C00 !important;
+        color: #212121 !important;   /* أسود */
+        font-weight: 700;
+        font-size: 16px;
+        text-align: center;
+    }
+
+    .improvement-box p { margin: 5px 0; }
+    .improvement-ar { direction: rtl; text-align: right; }
+    .improvement-en { direction: ltr; text-align: left; }
     </style>
 """, unsafe_allow_html=True)
+
 
 
 
@@ -549,6 +537,7 @@ with tab2:
 
     else:
         st.warning("⚠️ لا توجد بيانات كافية للمقارنة")
+
 
 
 
