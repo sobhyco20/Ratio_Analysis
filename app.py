@@ -412,8 +412,8 @@ with tab1:
                             st.markdown(
                                 f"""
                                 <div class="improvement-box">
-                                    <p class="improvement-ar">📌 <b>تحسين (AR):</b> {improvements[r['name_en']]['ar']}</p>
-                                    <p class="improvement-en">📌 <b>Improvement (EN):</b> {improvements[r['name_en']]['en']}</p>
+                                    <p class="improvement-ar">📌 <b>لتحسين النسبة  :</b> {improvements[r['name_en']]['ar']}</p>
+                                    <p class="improvement-en">📌 <b>Improvement :</b> {improvements[r['name_en']]['en']}</p>
                                 </div>
                                 """,
                                 unsafe_allow_html=True
@@ -550,6 +550,7 @@ with tab2:
 
     else:
         st.warning("⚠️ لا توجد بيانات كافية للمقارنة")
+
 
 
 
