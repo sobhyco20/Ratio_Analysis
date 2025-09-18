@@ -208,6 +208,8 @@ st.markdown("""
         border-radius: 8px;
         font-weight: 600;
         margin: 6px 0;
+        direction: rtl !important;
+        text-align: right !important;
     }
 
     /* 🧾 التحليل */
@@ -537,6 +539,7 @@ with tab2:
 
     else:
         st.warning("⚠️ لا توجد بيانات كافية للمقارنة")
+
 
 
 
