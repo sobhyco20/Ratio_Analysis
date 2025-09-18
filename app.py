@@ -312,6 +312,9 @@ years = df["year"].unique().tolist()
 selected_years = st.sidebar.multiselect("اختر السنوات للتحليل", years, default=years)
 
 
+st.sidebar.markdown("---")  # خط فاصل شكلي
+st.sidebar.image("footer_logo.png", use_container_width=True, caption="Sobhy Analysis")
+
 # 🟢 أيقونات لكل مجموعة نسب
 icons = {
     "نسب الأصول": "🏦",
@@ -563,6 +566,7 @@ with tab2:
 
     else:
         st.warning("⚠️ لا توجد بيانات كافية للمقارنة")
+
 
 
 
