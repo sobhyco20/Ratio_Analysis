@@ -276,6 +276,11 @@ st.set_page_config(page_title="📊 منصة تحليل النسب المالي�
 
 st.title("📊  تحليل النسب المالية | Financial Ratios Platform")
 
+st.sidebar.image("logo.png", use_column_width=True)
+
+
+
+
 st.sidebar.header("⚙️ الفلاتر")
 
 # 🟢 تحميل البيانات
@@ -288,7 +293,7 @@ else:
     st.error("⚠️ ملف البيانات financial_data.xlsx غير موجود، يرجى رفعه أو إضافته للمجلد.")
     st.stop()
     
-st.sidebar.image("logo.png", use_column_width=True)
+
 # عرض البيانات
 st.subheader("📋 البيانات المالية")
 st.dataframe(df)
@@ -551,6 +556,7 @@ with tab2:
 
     else:
         st.warning("⚠️ لا توجد بيانات كافية للمقارنة")
+
 
 
 
