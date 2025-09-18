@@ -302,8 +302,10 @@ else:
     st.stop()
     
 # عرض البيانات
-st.subheader("📋 البيانات المالية")
-st.dataframe(df)
+# 🟢 عرض البيانات داخل صندوق مطوي
+with st.expander("📑 البيانات المالية", expanded=False):
+    st.dataframe(df, use_container_width=True)
+
 
 # 🟢 فلتر السنوات
 years = df["year"].unique().tolist()
@@ -561,6 +563,7 @@ with tab2:
 
     else:
         st.warning("⚠️ لا توجد بيانات كافية للمقارنة")
+
 
 
 
