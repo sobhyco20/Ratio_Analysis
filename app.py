@@ -276,7 +276,7 @@ st.set_page_config(page_title="📊 منصة تحليل النسب المالي�
 
 st.title("📊  تحليل النسب المالية | Financial Ratios Platform")
 
-st.sidebar.image("logo.png", use_column_width=True)
+st.image("logo.png", use_container_width=True)
 
 
 
@@ -556,6 +556,7 @@ with tab2:
 
     else:
         st.warning("⚠️ لا توجد بيانات كافية للمقارنة")
+
 
 
 
