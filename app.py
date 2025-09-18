@@ -164,7 +164,7 @@ improvements = {
 # 🎨 تنسيقات CSS شاملة + Cairo Font
 st.markdown("""
     <style>
-    /* استدعاء الخطوط */
+    /* الخطوط */
     @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap');
     @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@500&display=swap');
 
@@ -172,7 +172,7 @@ st.markdown("""
         font-family: 'Cairo', sans-serif !important;
     }
 
-    /* النصوص العربية */
+    /* نصوص عربية */
     .arabic {
         direction: rtl !important;
         text-align: right !important;
@@ -180,7 +180,7 @@ st.markdown("""
         font-size: 16px;
     }
 
-    /* النصوص الإنجليزية */
+    /* نصوص إنجليزية */
     .english {
         direction: ltr;
         text-align: left;
@@ -190,34 +190,36 @@ st.markdown("""
 
     /* ✨ الوضع الفاتح */
     @media (prefers-color-scheme: light) {
+        body, html { background-color: #fdfdfd !important; }
         .arabic, .english { color: #2C3E50 !important; }
         div.streamlit-expanderHeader p {
             color: #2C3E50 !important;
-            background-color: #E8F6F3 !important;
+            background: linear-gradient(90deg,#E8F6F3,#D6EAF8) !important;
         }
         .ratio-value { color: #8E44AD !important; }
-        .equation-ar { background-color: #D6EAF8 !important; color: #154360 !important; }
-        .equation-en { background-color: #FCF3CF !important; color: #7D6608 !important; }
-        .explanation-box { background-color: #F4F6F7 !important; color: #1C2833 !important; }
-        .analysis-box { background-color: #D5F5E3 !important; color: #145A32 !important; }
-        .simplified-box { background-color: #EBF5FB !important; color: #1B4F72 !important; }
-        .improvement-box { background-color: #EAFAF1 !important; border: 2px solid #27AE60 !important; color: #145A32 !important; }
+        .equation-ar { background: #D6EAF8 !important; color: #154360 !important; }
+        .equation-en { background: #FCF3CF !important; color: #7D6608 !important; }
+        .explanation-box { background: #F4F6F7 !important; color: #1C2833 !important; }
+        .analysis-box { background: #D5F5E3 !important; color: #145A32 !important; }
+        .simplified-box { background: #EBF5FB !important; color: #1B4F72 !important; }
+        .improvement-box { background: #EAFAF1 !important; border: 2px solid #27AE60 !important; color: #145A32 !important; }
     }
 
-    /* 🎨 الوضع الداكن */
+    /* 🌙 الوضع الداكن */
     @media (prefers-color-scheme: dark) {
+        body, html { background-color: #0e1621 !important; }
         .arabic, .english { color: #f0f0f0 !important; }
         div.streamlit-expanderHeader p {
             color: #f0f0f0 !important;
-            background-color: #1b263b !important;
+            background: linear-gradient(90deg,#1b263b,#2e4053) !important;
         }
         .ratio-value { color: #00e676 !important; }
-        .equation-ar { background-color: #2E4053 !important; color: #AED6F1 !important; }
-        .equation-en { background-color: #7D6608 !important; color: #F9E79F !important; }
-        .explanation-box { background-color: #2a2a2a !important; color: #ffffff !important; }
-        .analysis-box { background-color: #145a32 !important; color: #d4ffd4 !important; }
-        .simplified-box { background-color: #16324f !important; color: #cce6ff !important; }
-        .improvement-box { background-color: #1e3a5f !important; border: 2px solid #1abc9c !important; color: #f0f0f0 !important; }
+        .equation-ar { background: #2E4053 !important; color: #AED6F1 !important; }
+        .equation-en { background: #7D6608 !important; color: #F9E79F !important; }
+        .explanation-box { background: #2a2a2a !important; color: #ffffff !important; }
+        .analysis-box { background: #145a32 !important; color: #d4ffd4 !important; }
+        .simplified-box { background: #16324f !important; color: #cce6ff !important; }
+        .improvement-box { background: #1e3a5f !important; border: 2px solid #1abc9c !important; color: #f0f0f0 !important; }
     }
 
     /* الهيدر */
@@ -242,34 +244,21 @@ st.markdown("""
         margin-top: 15px;
         text-align: center;
         font-size: 16px;
+        box-shadow: 0px 4px 12px rgba(0,0,0,0.15);
     }
     .improvement-box p { margin: 5px 0; }
     .improvement-ar { direction: rtl; text-align: right; }
     .improvement-en { direction: ltr; text-align: left; }
 
-    /* صندوق الشرح */
-    .explanation-box {
-        padding: 10px;
+    /* صندوق الشرح والتحليل */
+    .explanation-box, .analysis-box, .simplified-box {
+        padding: 12px;
         border-radius: 8px;
-        margin-top: 10px;
-    }
-
-    /* صندوق التحليل */
-    .analysis-box {
-        padding: 10px;
-        border-radius: 8px;
-        margin: 5px 0;
-    }
-
-    /* صندوق التبسيط */
-    .simplified-box {
-        padding: 10px;
-        border-radius: 6px;
-        margin: 5px 0;
+        margin: 6px 0;
+        box-shadow: inset 0px 1px 3px rgba(0,0,0,0.1);
     }
     </style>
 """, unsafe_allow_html=True)
-
 
 
 
@@ -532,6 +521,7 @@ with tab2:
 
     else:
         st.warning("⚠️ لا توجد بيانات كافية للمقارنة")
+
 
 
 
