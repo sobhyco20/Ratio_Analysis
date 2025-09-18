@@ -275,19 +275,6 @@ st.markdown("""
         0 0 30px #ffc014;
     }
 
-
-    </style>
-""", unsafe_allow_html=True)
-
-
-
-
-
-
-st.set_page_config(page_title="📊 منصة تحليل النسب المالية", layout="wide")
-
-st.markdown("""
-<style>
 /* نخلي الشريط الجانبي نفسه مرجع تموضع */
 [data-testid="stSidebar"]{ position: relative; }
 
@@ -312,10 +299,16 @@ st.markdown("""
 [data-testid="stSidebar"] .sidebar-footer-fixed .cap{
   font-size: 12px; opacity: .75; margin-top: 4px;
 }
-</style>
+
+    </style>
 """, unsafe_allow_html=True)
 
 
+
+
+
+
+st.set_page_config(page_title="📊 منصة تحليل النسب المالية", layout="wide")
 
 st.title("📊  تحليل النسب المالية | Financial Ratios Platform")
 
@@ -628,6 +621,7 @@ with tab2:
 
     else:
         st.warning("⚠️ لا توجد بيانات كافية للمقارنة")
+
 
 
 
